@@ -3,15 +3,15 @@ pipeline {
     node {
       label 'master'
     }
-    
+
   }
   stages {
     stage('Build') {
       steps {
-        withMaven(maven: 'M3') {
+        withMaven(maven: 'M3', jdk: 'JDK8') {
           sh 'mvn clean install'
         }
-        
+
       }
     }
     stage('Results') {
